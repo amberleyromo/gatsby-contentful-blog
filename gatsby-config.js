@@ -21,7 +21,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: "Howdy. I'm Amberley."
   },
   plugins: [
     'gatsby-transformer-remark',

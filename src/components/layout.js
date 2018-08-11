@@ -20,25 +20,18 @@ const Layout = ({ children, data }) => (
     render={data => (
       <>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title="Amberley Dot Blog"
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: 'Writings and collection from Amberley Romo' },
+            { name: 'keywords', content: 'blog, tech, code, development, knitting' },
           ]}
         >
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
+        <main>
           {children}
-        </div>
+        </main>
       </>
     )}
   />
