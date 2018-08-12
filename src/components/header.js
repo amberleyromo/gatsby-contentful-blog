@@ -1,5 +1,6 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 const Header = ({ siteTitle }) => (
   <header>
@@ -14,5 +15,9 @@ const Header = ({ siteTitle }) => (
     </h2>
   </header>
 )
+
+Header.propTypes = {
+  siteTitle: PropTypes.string.isRequired
+}
 
 export default Header

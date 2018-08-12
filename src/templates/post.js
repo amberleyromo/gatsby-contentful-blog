@@ -17,10 +17,7 @@ class PostTemplate extends Component {
             <article>
                 <div className="post-intro">
                     <h1 className="post-title" dangerouslySetInnerHTML={{ __html: post.title }} />
-                    <Date
-                        className="post-date"
-                        createdAt={post.createdAt}
-                    />
+                    <Date className="post-date" publishDate={post.date} />
                 </div>
                 <div className="post-body" dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }} />
                 <div className="post-nav">
@@ -60,6 +57,7 @@ export const pageQuery = graphql`
     contentfulBlogPost(id: { eq: $id }) {
         id
         title
+        date(formatString: "MMMM Do, YYYY")
         createdAt(formatString: "MMMM Do, YYYY")
         updatedAt
         author {

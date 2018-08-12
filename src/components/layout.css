@@ -175,12 +175,8 @@ a:hover, a:focus, a > code:hover {
   padding: 1px;
 }
 
-/*
- * Temp override width + height attr from WP
- */
 figure, img {
-  width: 100% !important;
-  height: auto !important;
+  max-height: 500px;
 }
 
 code, pre {

@@ -1,47 +1,40 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby';
+import { graphql, Link } from 'gatsby'
 import { Layout, Date } from '../components'
 
-class Home extends Component {
+class Posts extends Component {
   render() {
     const data = this.props.data
 
     return (
       <Layout>
-        <div className="home">
-          <h2 className="visually-hidden">Recent Posts</h2>
+        <div className="posts">
+          <h2 className="visually-hidden">Posts</h2>
           {data.allContentfulBlogPost.edges.map(({ node }) => (
-            <div className="post-node" key={node.id}>
+            <div className="post-node" key={node.slug}>
               <h3>
                 <Link to={node.slug}>{node.title}</Link>
               </h3>
-              <Date
-                className="post-date"
-                publishDate={node.date}
-              />
-              {/* <div dangerouslySetInnerHTML={{ __html: node.body.childMarkdownRemark.html }} /> */}
-              <p>{node.description}</p>
+              <Date className="post-date" publishDate={node.date} />
+              <div dangerouslySetInnerHTML={{ __html: node.description }} />
             </div>
           ))}
-          <div className="more-posts">
-            <p><a href="/posts">More Posts >></a></p>
-          </div>
         </div>
       </Layout>
     )
   }
 }
 
-Home.propTypes = {
+Posts.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default Home
+export default Posts
 
 export const pageQuery = graphql`
-  query homePageQuery {
-    allContentfulBlogPost(limit: 3) {
+  query postsPageQuery {
+    allContentfulBlogPost {
       edges {
         node {
           id
