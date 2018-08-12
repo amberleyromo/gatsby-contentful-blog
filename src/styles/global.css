@@ -1,0 +1,199 @@
+@media only screen and (max-width: 340px) {
+    html {
+      font-size: 100%;
+    }
+  }
+  
+  .visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 1px; width: 1px; 
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+  
+  header {
+    display: grid !important;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-gap: 10px;
+  }
+  
+  header > * {
+    grid-column: 2/3;
+  }
+  
+  .home {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-gap: 10px;
+  }
+  
+  .home .post-node:first-of-type {
+    grid-column: 2/4;
+    grid-row: 1;
+  }
+  
+  .home .post-node:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 2;
+    grid-gap: 10px;
+    padding-right: 1rem;
+  }
+  
+  .home .post-node:nth-of-type(3) {
+    grid-column: 3;
+    grid-row: 2;
+    padding-left: 1rem;
+  }
+  
+  .home .more-posts {
+    grid-row: 3;
+    grid-column: 2/4;
+    margin-bottom: 4rem;
+  }
+  
+  .home .more-posts p {
+    text-align: right;
+  }
+  
+  @media (max-width: 600px) {
+    .home {
+      grid-template-rows: auto auto auto auto;
+    }
+  
+    .home .post-node:nth-of-type(2),
+    .home .post-node:nth-of-type(3) {
+      grid-column: 2/4;
+      padding: 0;
+    }
+  
+    .home .post-node:nth-of-type(3) {
+      grid-row: 3;
+    }
+  
+    .home .more-posts {
+      grid-row: 4;
+    }
+  
+    .home .more-posts p {
+      text-align: center;
+    }
+  }
+  
+  .posts {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-gap: 10px;
+  }
+  
+  .posts .post-node {
+    grid-column: 2/4;
+  }
+  
+  article {
+    display: grid !important;
+    grid-template-columns: 1fr minmax(200px, 4fr) 1fr;
+    grid-gap: 10px;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "t t ."
+      ". p ."
+      ". n .";
+  }
+  
+  article .post-intro {
+    grid-area: t;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255,247,243);
+    margin: .6rem 0 .8rem 0;
+    padding-left: 6%;
+  }
+  
+  article .post-title {
+    grid-column: 2/3;
+  }
+  
+  article h1.post-title {
+    margin: .6rem 0 .4rem 0;
+  }
+  
+  article .post-date {
+    grid-column: 2/3;
+  }
+  
+  .post-date {
+    margin-bottom: .8rem;
+  }
+  
+  .post-date span {
+    font-size: .9rem;
+    color: #575757;
+  }
+  
+  article .post-body {
+    grid-area: p;
+  }
+  
+  article .post-body p:first-of-type {
+    font-style: italic;
+    font-size: 26px;
+    line-height: 2;
+  }
+  
+  article .post-nav {
+    grid-area: n;
+    text-align: center;
+    padding: 1.6rem 0 1.8rem;
+    background-color: rgb(248, 248, 248);
+  }
+  
+  article > figure {
+    grid-column: 1 / -1;
+    margin: 20px 0;
+  }
+  
+  article > blockquote {
+    grid-column: 3 / 5;
+    padding-left: 10px;
+    color: #666;
+    border-left: 3px solid black;
+  }
+  
+  article > aside {
+    grid-column: 5;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  a:hover, a:focus, a > code:hover {
+    background-color: rgb(244,153,133);
+    color: #fff;
+    padding: 1px;
+  }
+  
+  figure, img {
+    max-height: 500px;
+  }
+  
+  code, pre {
+    background-color: #f5fefe;
+    border: #decede solid .5px;
+  }
+  
+  pre {
+    overflow-x: scroll;
+    padding: 12px;
+  }
+  
+  code {
+    padding: 4px 2px 4px;
+  }
+  
+  a > code:hover {
+    border: none;
+  }
+  
