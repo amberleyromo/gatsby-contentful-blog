@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
-// import Link from 'gatsby-link'
-import { graphql } from 'gatsby';
+import PropTypes from 'prop-types'
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout'
 import Date from '../components/date'
 
-// import { rhythm } from '../utils/typography'
-
+const propTypes = {
+  data: PropTypes.object.isRequired,
+}
 class Home extends Component {
   render() {
     const data = this.props.data
@@ -18,8 +18,7 @@ class Home extends Component {
           {data.allContentfulBlogPost.edges.map(({ node }) => (
             <div className="post-node" key={node.id}>
               <h3>
-                {/* <Link to={node.slug}>{node.title}</Link> */}
-                {node.title}
+                <Link to={node.slug}>{node.title}</Link>
               </h3>
               <Date
                 className="post-date"
@@ -39,6 +38,8 @@ class Home extends Component {
   }
 }
 
+Home.propTypes = propTypes
+
 export default Home
 
 export const pageQuery = graphql`
@@ -48,6 +49,7 @@ export const pageQuery = graphql`
         node {
           id
           title
+          slug
           createdAt(formatString: "MMMM Do, YYYY")
           updatedAt
           author {
@@ -66,31 +68,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-
-
-// export const pageQuery = graphql`
-//   query homePageQuery {
-//     allWordpressPage {
-//       edges {
-//         node {
-//           id
-//           title
-//           excerpt
-//           slug
-//           date(formatString: "MMMM DD, YYYY")
-//         }
-//       }
-//     }
-//     allWordpressPost (limit: 3) {
-//       edges {
-//         node {
-//           title
-//           excerpt
-//           slug
-//           ...PostIcons
-//         }
-//       }
-//     }
-//   }
-// `

@@ -1,8 +1,6 @@
 import React from 'react'
 import { FaTag as Tag, FaClock as Clock, FaFolderOpen as Open } from 'react-icons/fa';
 
-import { rhythm } from '../utils/typography'
-
 export default ({ createdAt, className = `postIcon` }) => (
   <div className={className}>
     <span>
@@ -12,22 +10,3 @@ export default ({ createdAt, className = `postIcon` }) => (
     </span>
   </div>
 )
-
-// export const PostDateFragment = graphql`
-//   fragment PostDateFrag on ContentfulBlogPost {
-//     createdAt(formatString: "MMMM DD, YYYY")
-//     updatedAt(formatString: "MMMM DD, YYYY")
-//   }
-// `
-
-// export const query = graphql`
-//   fragment PostDateFrag on ContentfulBlogPost {
-//     date(formatString: "MMMM DD, YYYY")
-//     tags {
-//       name
-//     }
-//     categories {
-//       name
-//     }
-//   }
-// `

@@ -4,8 +4,6 @@ import Layout from '../components/layout'
 import Date from '../components/date'
 import { graphql, Link} from 'gatsby'
 
-import { rhythm } from '../utils/typography'
-
 const propTypes = {
     data: PropTypes.object.isRequired,
 }
@@ -34,19 +32,19 @@ class PostTemplate extends Component {
   }
 
   renderPostNav() {
-    var prev = this.props.pathContext.prevId;
-    var next = this.props.pathContext.nextId;
+    var newer = this.props.pathContext.newerPostId;
+    var earlier = this.props.pathContext.earlierPostId;
 
-    if (prev && !next) {
-      return (<Link to={prev}>previous</Link>);
+    if (newer && !earlier) {
+      return (<Link to={newer}>newer post</Link>);
     }
 
-    if (prev && next) {
-      return (<span><Link to={prev}>previous</Link> | <Link to={next}>next</Link></span>)
+    if (newer && earlier) {
+      return (<span><Link to={newer}>newer post</Link> | <Link to={earlier}>earlier post</Link></span>)
     }
 
-    if (next && !prev) {
-      return (<Link to={next}>next</Link>)
+    if (earlier && !newer) {
+      return (<Link to={earlier}>earlier post</Link>)
     }
 
     return;
