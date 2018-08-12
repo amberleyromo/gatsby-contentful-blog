@@ -39,7 +39,7 @@ export default Home
 
 export const pageQuery = graphql`
   query homePageQuery {
-    allContentfulBlogPost(limit: 3) {
+    allContentfulBlogPost(limit: 3, sort: {fields: [date], order: DESC}) {
       edges {
         node {
           id
