@@ -21,16 +21,20 @@ const Layout = ({ children, data }) => (
         <Helmet
           title="Amberley Dot Blog"
           meta={[
-            { name: 'description', content: 'Writings and collection from Amberley Romo' },
-            { name: 'keywords', content: 'blog, tech, code, development, knitting' },
+            {
+              name: 'description',
+              content: 'Writings and collection from Amberley Romo',
+            },
+            {
+              name: 'keywords',
+              content: 'blog, tech, code, development, knitting',
+            },
           ]}
         >
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </>
     )}
   />

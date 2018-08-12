@@ -8,7 +8,8 @@ try {
 // Overwrite the Contentful config with environment variables if they exist
 contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID || contentfulConfig.spaceId,
-  accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken,
+  accessToken:
+    process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken,
 }
 
 const { spaceId, accessToken } = contentfulConfig
@@ -21,7 +22,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Howdy. I'm Amberley."
+    title: "Howdy. I'm Amberley.",
   },
   plugins: [
     'gatsby-transformer-remark',
@@ -29,12 +30,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Amberley Dot Blog",
-        short_name: "amberleyblog",
-        start_url: "/",
-        background_color: "#f49985",
-        theme_color: "#fff7f3",
-        display: "minimal-ui",
+        name: 'Amberley Dot Blog',
+        short_name: 'amberleyblog',
+        start_url: '/',
+        background_color: '#f49985',
+        theme_color: '#fff7f3',
+        display: 'minimal-ui',
         icons: [
           {
             src: `/favicons/icon-192x192.png`,
@@ -54,7 +55,7 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography.js`,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-accessibilityjs`,
@@ -66,7 +67,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-112664995-1",
+        trackingId: 'UA-112664995-1',
         anonymize: true,
       },
     },
@@ -76,6 +77,6 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
-    }
+    },
   ],
 }

@@ -7,7 +7,7 @@ Sutro.overrideThemeStyles = ({ rhythm }, options) => {
   return {
     'h1,h2,h3': {
       marginTop: rhythm(1),
-      marginBottom: rhythm(1/4),
+      marginBottom: rhythm(1 / 4),
       lineHeight: 1.4,
     },
     p: {

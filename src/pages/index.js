@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby';
+import { graphql, Link } from 'gatsby'
 import { Layout, Date } from '../components'
 
 class Home extends Component {
@@ -16,16 +16,14 @@ class Home extends Component {
               <h3>
                 <Link to={node.slug}>{node.title}</Link>
               </h3>
-              <Date
-                className="post-date"
-                publishDate={node.date}
-              />
-              {/* <div dangerouslySetInnerHTML={{ __html: node.body.childMarkdownRemark.html }} /> */}
+              <Date className="post-date" publishDate={node.date} />
               <p>{node.description}</p>
             </div>
           ))}
           <div className="more-posts">
-            <p><a href="/posts">More Posts >></a></p>
+            <p>
+              <a href="/posts">More Posts >></a>
+            </p>
           </div>
         </div>
       </Layout>

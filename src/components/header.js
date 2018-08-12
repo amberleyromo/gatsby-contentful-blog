@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
 )
 
 Header.propTypes = {
-  siteTitle: PropTypes.string.isRequired
+  siteTitle: PropTypes.string.isRequired,
 }
 
 export default Header
